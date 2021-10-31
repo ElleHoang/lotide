@@ -10,10 +10,9 @@ console.log(results1);
 const map = function(array, callback) { // map (higher-order) function can call callback function
   const results = [];
   for (let item of array) {
-    console.log('item BEFORE: ', item);
-    console.log('item AFTER: ', callback(item));
-    console.log('---');
+    results.push(callback(item));
   }
+  //console.log(results);
   return results;
 };
-map(words,word => word[0]);
+map(words, word => word[0]);
