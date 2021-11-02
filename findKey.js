@@ -9,13 +9,13 @@ const assertEqual = function(actual, expected) {
 // SCAN object
 // return 1st key for callback return truthy value
 // no key found = undefined
-const findKey = function(object, callback) { 
+const findKey = function(object, callback) {
   for (let key of Object.keys(object)) {
     if (callback(object[key])) {
       return key;
     }
   }
-}; 
+};
 
 assertEqual(findKey({
   "Saturn": {moons: 82},

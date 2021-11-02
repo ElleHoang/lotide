@@ -29,7 +29,7 @@ const map = function(array, callback) { // map (higher-order) function can call 
   for (let item of array) {
     results.push(callback(item));
   }
-  //console.log(results);
+  console.log(results);
   return results;
 };
 assertArraysEqual(map(words, word => word[0]), [ 'g', 'c', 't', 'm', 't' ]);
