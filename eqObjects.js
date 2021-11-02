@@ -1,43 +1,17 @@
-const assertEqual = function(actual, expected) {
-  if (actual === expected) {
-    //console.log("✅✅✅ Assertion Passed: " + actual + " === " + expected);
-    return true;
-  } else {
-    //console.log("🚨🚨🚨 Assertion Failed: " + actual + " !== " + expected);
-    return false;
-  }
-};
+const assertEqual = require('./assertEqual');
+const eqArrays = require('./eqArrays');
 
-const eqArrays = function(arr1, arr2) {
-  if (arr1.length === arr2.length) { // comparing two arrays
-    for (let i = 0; i < arr1.length; i++) {
-      if (arr1[i] !== arr2[i]) {
-        return false;
-      }
-    }
-    return true;
-  } else {
-    return false;
-  }
-};
-
-// create eqObjects function taking in 2 OBJECTS
 const eqObjects = function(object1, object2) {
-// 2 objects equal when have same num of keys
-// value for each key in object1 = value for each key in object2
-// use eqArrays when there is array value encountered for key
-  if (Object.keys(object1).length === Object.keys(object2).length) { // compares length of returned array of objects keys
+  if (Object.keys(object1).length === Object.keys(object2).length) {
     for (let key of Object.keys(object1)) {
-      if (Array.isArray(object1[key])) { // if object key has array
-        if (eqArrays(object1[key], object2[key])) { // compare arrays
-          // continue looping
+      if (Array.isArray(object1[key])) { 
+        if (eqArrays(object1[key], object2[key])) {
         } else {
           console.log("False: no key match");
           return false;
         }
       } else {
-        if (assertEqual(object1[key], object2[key])) { // compare prim values
-          // continue looping
+        if (assertEqual(object1[key], object2[key])) { 
         } else {
           console.log("False: no key match");
           return false;
@@ -49,7 +23,7 @@ const eqObjects = function(object1, object2) {
     console.log("False: no key match");
   }
 };
-// return true or false, based on perfect match(identical
+
 
 // TEST CASE
 const ab = { a: "1", b: "2" };
