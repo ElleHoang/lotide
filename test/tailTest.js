@@ -1,7 +1,7 @@
 const { assert } = require('chai');
 const tail = require('../tail');
 
-describe("tail", () => {
+describe("#tail", () => {
   const words = ["Yo Yo", "Lighthouse", "Labs"];
   it('should return 3 for tail(words)', () => {
     assert.strictEqual((words.length), 3);
