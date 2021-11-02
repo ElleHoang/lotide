@@ -13,5 +13,3 @@ const middle = function(array) {
   return newArr;
 };
 module.exports = middle;
-
-// TEST CASE
